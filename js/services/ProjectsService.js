@@ -2,8 +2,8 @@
 		.module('todoApp')
 		.factory('Projects', Projects);
 
-	Projects.$inject = ['$rootScope'];
-	function Projects($rootScope) {
+	Projects.$inject = [];
+	function Projects() {
 		var service = {
 			all: all,
 			save: save,
@@ -72,11 +72,6 @@
 		function setLastActiveIndex(index) {
 			console.log("Projects.setLastActiveIndex");
 			window.localStorage['lastActiveProject'] = index;
-			broadcastProjectChange(index);
 		}
 		
-		function broadcastProjectChange(index) {
-			console.log("Projects.broadcastProjectChange");
-			$rootScope.$broadcast('project:selected',index);
-		}
 	}
